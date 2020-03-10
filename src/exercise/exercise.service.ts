@@ -14,4 +14,17 @@ export class ExerciseService {
   findAll(): Promise<Exercise[]> {
     return this.exerciseRepository.find();
   }
+
+  async updateHit(index): Promise<boolean> {
+    try {
+      const exercise = await this.exerciseRepository.findOne(index);
+      exercise.hit = exercise.hit + 1;
+      await this.exerciseRepository.save(exercise);
+
+      return true;
+    } catch (error) {
+      console.error(error);
+      return false;
+    }
+  }
 }
