@@ -10,14 +10,14 @@ export interface response {
 }
 
 @Injectable()
-export class ExerciseService {
+export class ExerciseMenuService {
   findAll(): response {
     return {
-      message: '운동 목록을 가져왔습니다.',
+      message: '메뉴를 가져왔습니다.',
       data: [
         {
-          krName: '운동1',
-          enName: '운동2',
+          krName: '메뉴1',
+          enName: '메뉴2',
           index: 1,
         },
       ],
