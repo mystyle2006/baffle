@@ -1,26 +1,16 @@
 import { Injectable } from '@nestjs/common';
-
-export interface response {
-  message: string;
-  data: Array<{
-    krName: string;
-    enName: string;
-    index: number;
-  }>;
-}
+import { InjectRepository } from '@nestjs/typeorm';
+import { ExerciseMenu } from './exercise-menu.entity';
+import { Repository } from 'typeorm';
 
 @Injectable()
 export class ExerciseMenuService {
-  findAll(): response {
-    return {
-      message: '메뉴를 가져왔습니다.',
-      data: [
-        {
-          krName: '메뉴1',
-          enName: '메뉴2',
-          index: 1,
-        },
-      ],
-    };
+  constructor(
+    @InjectRepository(ExerciseMenu)
+    private exerciseMenuRepository: Repository<ExerciseMenu>,
+  ) {}
+
+  findAll(): Promise<ExerciseMenu[]> {
+    return this.exerciseMenuRepository.find();
   }
 }

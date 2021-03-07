@@ -2,7 +2,7 @@ import { Controller, Get } from '@nestjs/common';
 import { ExerciseService } from './exercise.service';
 import { Exercise } from './exercise.entity';
 
-export interface findAll {
+interface findAll {
   message: string;
   data: Array<Exercise>;
 }
