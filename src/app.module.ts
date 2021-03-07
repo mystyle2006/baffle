@@ -9,9 +9,6 @@ import { ExerciseHistoryModule } from './exercise-history/exercise-history.modul
 import { ExerciseSetModule } from './exercise-set/exercise-set.module';
 import { UsersModule } from './users/users.module';
 
-import { User } from './users/user.entity';
-import { Exercise } from './exercise/exercise.entity';
-
 @Module({
   imports: [
     TypeOrmModule.forRoot({
@@ -21,7 +18,7 @@ import { Exercise } from './exercise/exercise.entity';
       username: 'root',
       password: '',
       database: 'bapeul',
-      entities: [User, Exercise],
+      autoLoadEntities: true,
       synchronize: true,
     }),
     ExerciseModule,
