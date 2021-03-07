@@ -7,8 +7,14 @@ export interface response {
     updatedAt: string;
     imageUrl: string;
     name: string;
-    set: number;
     index: number;
+    set: Array<{
+      weight: number;
+      unit: string;
+      count: number;
+      index: number;
+      status: string;
+    }>;
   }>;
 }
 
@@ -19,7 +25,22 @@ export class ExerciseHistoryService {
       message: '운동 기록을 가져왔습니다.',
       data: [
         {
-          set: 5,
+          set: [
+            {
+              index: 1,
+              count: 2,
+              weight: 50,
+              unit: 'kg',
+              status: 'done',
+            },
+            {
+              index: 2,
+              count: 2,
+              weight: 50,
+              unit: 'kg',
+              status: 'pending',
+            },
+          ],
           imageUrl: 'http://test.png',
           createdAt: '2021-01-01',
           updatedAt: '2021-01-01',
