@@ -7,6 +7,7 @@ export interface response {
     updatedAt: string;
     imageUrl: string;
     name: string;
+    set: number;
     index: number;
   }>;
 }
@@ -18,6 +19,7 @@ export class ExerciseHistoryService {
       message: '운동 기록을 가져왔습니다.',
       data: [
         {
+          set: 5,
           imageUrl: 'http://test.png',
           createdAt: '2021-01-01',
           updatedAt: '2021-01-01',
