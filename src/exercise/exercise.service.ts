@@ -5,6 +5,8 @@ export interface response {
   data: Array<{
     krName: string;
     enName: string;
+    hit: number;
+    imageUrl: string;
     index: number;
   }>;
 }
@@ -18,6 +20,8 @@ export class ExerciseService {
         {
           krName: '운동1',
           enName: '운동2',
+          hit: 255,
+          imageUrl: 'http://test-image.png',
           index: 1,
         },
       ],
