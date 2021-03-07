@@ -8,7 +8,9 @@ import { ExerciseMenuModule } from './exercise-menu/exercise-menu.module';
 import { ExerciseHistoryModule } from './exercise-history/exercise-history.module';
 import { ExerciseSetModule } from './exercise-set/exercise-set.module';
 import { UsersModule } from './users/users.module';
+
 import { User } from './users/user.entity';
+import { Exercise } from './exercise/exercise.entity';
 
 @Module({
   imports: [
@@ -19,7 +21,7 @@ import { User } from './users/user.entity';
       username: 'root',
       password: '',
       database: 'bapeul',
-      entities: [User],
+      entities: [User, Exercise],
       synchronize: true,
     }),
     ExerciseModule,
