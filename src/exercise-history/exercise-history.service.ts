@@ -11,6 +11,6 @@ export class ExerciseHistoryService {
   ) {}
 
   findAll(): Promise<ExerciseHistory[]> {
-    return this.exerciseHistoryRepository.find({ relations: ['exerciseInfo'] });
+    return this.exerciseHistoryRepository.find({ relations: ['exerciseInfo', 'sets'] });
   }
 }

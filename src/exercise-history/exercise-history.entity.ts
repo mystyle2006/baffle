@@ -1,13 +1,14 @@
 import {
   Entity,
-  Column,
   PrimaryGeneratedColumn,
   OneToOne,
   JoinColumn,
   CreateDateColumn,
   UpdateDateColumn,
+  OneToMany,
 } from 'typeorm';
 import { Exercise } from '../exercise/exercise.entity';
+import { ExerciseSet } from '../exercise-set/exercise-set.entity';
 
 @Entity()
 export class ExerciseHistory {
@@ -23,4 +24,7 @@ export class ExerciseHistory {
 
   @UpdateDateColumn()
   updatedAt;
+
+  @OneToMany(() => ExerciseSet, (exerciseSet) => exerciseSet.history)
+  sets: ExerciseSet[];
 }
