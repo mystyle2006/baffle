@@ -13,4 +13,27 @@ export class ExerciseSetService {
   findAll(): Promise<ExerciseSet[]> {
     return this.exerciseSetRepository.find();
   }
+
+  create(
+    weight: number,
+    count: number,
+    order: number,
+    historyIndex: number,
+  ): Promise<ExerciseSet | null> {
+    try {
+      const newSet = this.exerciseSetRepository.create({
+        weight,
+        count,
+        order,
+        history: {
+          index: historyIndex,
+        },
+      });
+      const result = this.exerciseSetRepository.save(newSet);
+      return result;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
+  }
 }

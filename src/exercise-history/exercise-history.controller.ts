@@ -35,7 +35,7 @@ export class ExerciseHistoryController {
     if (!result) {
       return {
         message: '운동 이력을 생성하지 못하였습니다.',
-        data: result,
+        data: null,
       };
     }
 
