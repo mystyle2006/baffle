@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { ExerciseHistory } from '../exercise-history/exercise-history.entity';
 
 @Entity()
 export class Exercise {
@@ -16,4 +17,10 @@ export class Exercise {
 
   @Column({ nullable: true })
   imageUrl: string;
+
+  @OneToMany(
+    () => ExerciseHistory,
+    (exerciseHistory) => exerciseHistory.exercise,
+  )
+  history: ExerciseHistory[];
 }

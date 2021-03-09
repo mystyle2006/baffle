@@ -11,6 +11,23 @@ export class ExerciseHistoryService {
   ) {}
 
   findAll(): Promise<ExerciseHistory[]> {
-    return this.exerciseHistoryRepository.find({ relations: ['exerciseInfo', 'sets'] });
+    return this.exerciseHistoryRepository.find({
+      relations: ['exercise', 'sets'],
+    });
+  }
+
+  async create(exerciseIndex: number): Promise<ExerciseHistory | null> {
+    try {
+      const newHistory = await this.exerciseHistoryRepository.create({
+        exercise: {
+          index: exerciseIndex,
+        },
+      });
+      const result = await this.exerciseHistoryRepository.save(newHistory);
+      return result;
+    } catch (error) {
+      console.error(error);
+      return null;
+    }
   }
 }
