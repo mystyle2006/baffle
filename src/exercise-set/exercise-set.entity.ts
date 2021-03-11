@@ -15,6 +15,9 @@ export class ExerciseSet {
   @Column()
   order: number;
 
+  @Column()
+  done: boolean;
+
   @ManyToOne(() => ExerciseHistory, (exerciseHistory) => exerciseHistory.sets)
   history: ExerciseHistory;
 }
